@@ -1,21 +1,17 @@
+import Header from '@/components/header'
+import Hero from '@/components/hero'
+import Footer from '@/components/footer'
+
 export default function Home() {
   const subtitle = 'アウトプットしていくサイト'
 
   return (
   <>
-  <header>HEADER</header>
-
+  <Header />
   <main>
-  <div className = "hero">
-  <h1 style={{color: 'red',fontSize: '80px'}}>
-    CUBE
-    </h1>
-  <hr />
-  <p>{subtitle}</p>
-  </div>
+    <Hero />
   </main>
-
-  <footer>FOOTER</footer>
+    <Footer />
   </>
   )
 }
