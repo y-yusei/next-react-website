@@ -1,9 +1,9 @@
 import Link from 'next/link'
+import styles from 'styles/logo.module.css'
 
-export default function Lego() {
+export default function Lego( { box0n = false }) {
     return (
-        <Link href ="/">
-            <a>CUBE</a>
+        <Link href ="/" className={box0n ? styles.box : styles.basic}>CUBE
         </Link>
     )
 }
