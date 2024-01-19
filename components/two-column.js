@@ -17,7 +17,7 @@ TwoColumn.Main = function Main ({ children }) {
     )
 }
 
-TwoColumn.sidebar = function Sidebar({ children }){
+TwoColumn.Sidebar = function Sidebar({ children }){
     return (
         <div className = {styles.sidebar}>
             {children}
