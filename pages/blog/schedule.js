@@ -1,6 +1,11 @@
-import Container from '@/components/container'
+import Container from 'components/container'
 import { getPostBySlug } from 'lib/api'
-export default function Schedule({
+import PostHeader from 'components/post-header'
+import PostBody from 'components/post-body'
+import TwoColumn from 'components/two-column'
+import Image from 'next/image'
+
+export default function Schedule ({
     title,
     publish,
     content,
@@ -9,7 +14,30 @@ export default function Schedule({
 }) {
     return (
         <Container>
-            <h1>{title}</h1>
+            <article>
+                <PostHeader title={title} subtitle="Blog Article" publish={publish} />
+
+                <figure>
+                    <Image
+                        src={eyecatch?.url}
+                        alt=""
+                        layout="responsive"
+                        width={eyecatch?.width}
+                        height={eyecatch?.height}
+                        sizes="(min-width: 1152px) 1152px, 100vw"
+                        priority
+                        />
+                </figure>
+
+                <TwoColumn>
+                    <TwoColumn.Main>
+                        <PostBody>
+                            <div dangerouslySetInnerHTML={{__html: content }} />
+                            </PostBody>
+                    </TwoColumn.Main>
+                    <TwoColumn.Sidebar></TwoColumn.Sidebar>
+                </TwoColumn>
+            </article>
         </Container>
     )
 }
@@ -18,7 +46,6 @@ export async function getStaticProps() {
     const slug ='schedule'
 
     const post = await getPostBySlug(slug)
-
     return {
         props: {
             title: post.title,
