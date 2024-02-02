@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function ConvertBody({ contentHTML }) {
     // error 
-    const contentReact = parse(contentHTML , {
+    const contentReact = parse(contentHTML ?? '' , {
         replace: (node) =>{
             if (node.name === 'img'){
                 const { src, alt, width, height } = node.attribs
